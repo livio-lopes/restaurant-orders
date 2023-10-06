@@ -6,16 +6,20 @@ import csv
 
 class MenuData:
     def __init__(self, source_path: str) -> None:
-        self.dishes = set()
+        self.list_dishes = list()
         with open(source_path) as file:
             headers, *rows = csv.reader(file)
             for row in rows:
                 instance = Dish(row[0], float(row[1]))
-                instance.add_ingredient_dependency(
-                    Ingredient(row[2]), int(row[3])
-                )
-                self.dishes.add(instance)
-
-
-# test = MenuData("data/menu_base_data.csv")
-# print(test.dishes)
+                if instance not in self.list_dishes:
+                    instance.add_ingredient_dependency(
+                        Ingredient(row[2]), int(row[3])
+                    )
+                    self.list_dishes.append(instance)
+                else:
+                    for dish in self.list_dishes:
+                        if dish == instance:
+                            dish.add_ingredient_dependency(
+                                Ingredient(row[2]), int(row[3])
+                            )
+        self.dishes = set(self.list_dishes)
