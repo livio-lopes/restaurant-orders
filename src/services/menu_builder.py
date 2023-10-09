@@ -36,12 +36,6 @@ class MenuBuilder:
             }
             if not self.inventory.check_recipe_availability(dish.recipe):
                 return main_menu
-            if not restriction:
-                menu["restrictions"] = dish.get_restrictions()
-                menu["ingredients"] = dish.get_ingredients()
-                menu["dish_name"] = dish.name
-                menu["price"] = dish.price
-                main_menu.append(menu)
             elif restriction not in dish.get_restrictions():
                 menu["restrictions"] = dish.get_restrictions()
                 menu["ingredients"] = dish.get_ingredients()
