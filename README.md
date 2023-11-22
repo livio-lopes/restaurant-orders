@@ -1,5 +1,5 @@
 ## O que é projeto Restaurant Orders?
-Esse projeto simula um sistema de gestão de cardapios, propondo execitar o conceito de hashmaps através das estruturas de dados `Dict` e `Set`
+Esse projeto simula um sistema de gestão de cardapios, propondo execitar o conceito de hashmaps através das estruturas de dados `Dict` e `Set` com cobertura de testes
 ## Quais desafios?
 1. Implementar testes unitários para a classe `Ingredient`
 2. Implementar testes unitários para a classe `Dish`
